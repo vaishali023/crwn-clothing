@@ -1,3 +1,4 @@
+import "./categories.styles.sass";
 const App = () => {
   const categories = [
     {
