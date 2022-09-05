@@ -6,8 +6,6 @@ import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
 
 import './navigation.styles.scss';
 
-
-
 const Navigation = () => {
   return (
     <Fragment>
@@ -20,8 +18,9 @@ const Navigation = () => {
            SHOP
         </Link>
         <Link className='nav-link' to='/sign-in'>
-           SIGN IN 
+           SIGN IN
         </Link>
+
         </div>
       </div>
       <Outlet />
