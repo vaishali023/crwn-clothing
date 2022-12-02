@@ -48,7 +48,7 @@ const firebaseConfig = {
  
  export const addCollectionAndDocuments = async(
   collectionKey,
-     objectsToAdd,
+     objectsToAdd
      ) => {
     const collectionRef = collection(db, collectionKey);
     const batch = writeBatch(db);
