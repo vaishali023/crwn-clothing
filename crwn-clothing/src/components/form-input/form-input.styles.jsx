@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const subColor = 'grey';
 const mainColor = 'black';
@@ -19,7 +19,8 @@ export const FormInputLabel = styled.label`
     top: 10px;
     transition: 300ms ease all;
   
-  ${({shrink}) => shrink && shrinkLabelStyles};
+    ${({ shrink }) => shrink && shrinkLabelStyles};
+ 
 `;
 
 export const Input = styled.input`
@@ -32,7 +33,7 @@ export const Input = styled.input`
     width: 100%;
     border: none;
     border-radius: 0;
-    border-bottom: 1px solid $sub-color;
+    border-bottom: 1px solid ${subColor};
     margin: 25px 0;
 
     &:focus {
