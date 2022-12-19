@@ -18,7 +18,7 @@ import {NavigationContainer,NavLinks, NavLink, LogoContainer} from './navigation
 
 const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);
-  const { isCartOpen } = useSelector(selectIsCartOpen);
+  const isCartOpen  = useSelector(selectIsCartOpen);
 
   return (
     <Fragment>
