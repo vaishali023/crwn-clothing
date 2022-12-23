@@ -1,5 +1,3 @@
-import Shop from "./routes/shop/shop.component";
-
 const SHOP_DATA = [
   {
     title: 'Hats',
