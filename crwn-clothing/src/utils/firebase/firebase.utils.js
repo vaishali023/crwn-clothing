@@ -92,7 +92,7 @@ const firebaseConfig = {
      console.log("Error creating the user", error.message);
    }
   }
-  return userDocRef;
+  return userSnapShot;
   };
 
   export const createAuthUserWithEmailAndPassword = async (email, password) => {
