@@ -9,6 +9,7 @@ import { signInSuccess,
       signOutSuccess,
       signOutFailed
     } from "./user.action";
+
 import { getCurrentUser, 
     createUserDocumentFromAuth,
     signInWithGooglePopup,
@@ -21,7 +22,7 @@ export function* getSnapshotFromUserAuth(userAuth, additionalDetails) {
     try{
         const userSnapShot = yield call(createUserDocumentFromAuth, userAuth, additionalDetails);
         yield put(signInSuccess({id: userSnapShot.id, ...userSnapShot.data()}));
-    }catch(error) {
+    } catch(error) {
        yield put(signInFailed(error));
     }
 }
@@ -60,7 +61,7 @@ export function* signUp({payload: {email, password, displayName }}) {
 export function* signOut() {
   try{
     yield call(signOutUser);
-    yield put(signInSuccess());
+    yield put(signOutSuccess());
   } catch (error) {
     yield put(signOutFailed(error));
   }
