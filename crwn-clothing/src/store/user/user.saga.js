@@ -10,18 +10,18 @@ import { signInSuccess,
       signOutFailed
     } from "./user.action";
 
-import { getCurrentUser, 
+import {  getCurrentUser,
     createUserDocumentFromAuth,
     signInWithGooglePopup,
-   createAuthUserWithEmailAndPassword,
-   signOutUser
+    signInAuthUserWithEmailAndPassword,
+    createAuthUserWithEmailAndPassword,
+    signOutUser,
  } from "../../utils/firebase/firebase.utils";
-import { signInWithEmailAndPassword } from "firebase/auth";
 
 export function* getSnapshotFromUserAuth(userAuth, additionalDetails) {
     try{
         const userSnapShot = yield call(createUserDocumentFromAuth, userAuth, additionalDetails);
-        yield put(signInSuccess({id: userSnapShot.id, ...userSnapShot.data()}));
+        yield put(signInSuccess({id: userSnapShot.id, ...userSnapShot.data() }));
     } catch(error) {
        yield put(signInFailed(error));
     }
@@ -36,18 +36,19 @@ export function* signInWithGoogle() {
     }
 }
 
-export function* signInWithEmail({payload: {email, password}}) {
-    try{
-        const {user} = yield call(
-            signInWithEmailAndPassword,
-            email, password
-        );
-        yield call(getSnapshotFromUserAuth, user);
-    } catch(error) {
-        yield put(signInFailed(error));
 
+export function* signInWithEmail({ payload: { email, password } }) {
+    try {
+      const { user } = yield call(
+        signInAuthUserWithEmailAndPassword,
+        email,
+        password
+      );
+      yield call(getSnapshotFromUserAuth, user);
+    } catch (error) {
+      yield put(signInFailed(error));
     }
-}
+  }
 
 export function* signUp({payload: {email, password, displayName }}) {
     try{
