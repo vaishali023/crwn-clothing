@@ -12,6 +12,7 @@ import {
   Footer,
   Name,
   Price,
+ 
 } from './product-card.styles';
 
 type ProductCardProps = {
@@ -36,7 +37,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
         buttonType={BUTTON_TYPE_CLASSES.inverted}
         onClick={addProductToCart}
       >
-        Add to card
+        Add to cart
       </Button>
     </ProductCartContainer>
   );
